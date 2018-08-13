@@ -153,6 +153,12 @@ class OAuth2BasicAuthenticator < ::Auth::OAuth2Authenticator
     end
     return ''
   end
+
+  def enabled?
+    # mixed here cause maybe it should be true, technically
+    # this is correct
+    SiteSetting.oauth2_enabled
+  end
 end
 
 auth_provider title_setting: "oauth2_button_title",
